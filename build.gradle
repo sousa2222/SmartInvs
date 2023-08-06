@@ -43,10 +43,6 @@ jar {
     archiveFileName = 'SmartInvs-' + project.version + '.jar'
 }
 
-signing {
-    sign configurations.archives
-}
-
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -66,12 +62,12 @@ uploadArchives {
                 name 'SmartInvs'
                 packaging 'jar'
                 description 'Advanced Inventory API for your Minecraft Bukkit plugins.'
-                url 'https://github.com/MinusKube/SmartInvs'
+                url 'https://github.com/sousa2222/SmartInvs'
 
                 scm {
-                    connection 'scm:git:git://github.com/MinusKube/SmartInvs.git'
-                    developerConnection 'scm:git:ssh://github.com:MinusKube/SmartInvs.git'
-                    url 'http://github.com/MinusKube/SmartInvs/tree/master'
+                    connection 'scm:git:git://github.com/sousa2222/SmartInvs.git'
+                    developerConnection 'scm:git:ssh://github.com:sousa2222/SmartInvs.git'
+                    url 'https://github.com/sousa2222/SmartInvs/tree/master'
                 }
 
                 licenses {
@@ -86,6 +82,10 @@ uploadArchives {
                         id 'minuskube'
                         name 'MinusKube'
                         email 'minuskube@gmail.com'
+                    }
+                    developer {
+                        id 'sousa222'
+                        name 'Sousa'
                     }
                 }
             }

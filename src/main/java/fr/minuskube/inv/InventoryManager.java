@@ -137,6 +137,9 @@ public class InventoryManager {
             if (!inventories.containsKey(p.getUniqueId()))
                 return;
 
+            SmartInventory inventory = inventories.get(p.getUniqueId());
+            if (inventory.getClickable()) return;
+
             // Restrict putting items from the bottom inventory into the top inventory
             Inventory clickedInventory = e.getClickedInventory();
             if (clickedInventory == p.getOpenInventory().getBottomInventory()) {
