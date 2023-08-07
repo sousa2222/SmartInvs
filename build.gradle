@@ -37,7 +37,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
-    implementation 'com.github.sousa2222:1.2.7'
+    implementation 'com.github.sousa2222:SmartInvs:SmartInvs-1.2.7'
 }
 
 jar {
