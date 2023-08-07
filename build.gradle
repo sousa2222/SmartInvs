@@ -7,36 +7,30 @@ apply plugin: 'signing'
 
 sourceCompatibility = 1.8
 
-javadoc {
-    options.links(
-            'https://hub.spigotmc.org/javadocs/spigot/',
-            'https://docs.oracle.com/javase/8/docs/api/'
-    )
-
-    options.addStringOption('Xdoclint:none', '-quiet')
-}
-
-task javadocJar(type: Jar) {
-    archiveClassifier = 'javadoc'
-    from javadoc
-}
-
 task sourcesJar(type: Jar) {
     archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
 
-artifacts { archives javadocJar, sourcesJar }
+artifacts {  sourcesJar }
 
 repositories {
     mavenCentral()
-
+    maven {
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
     maven { url "https://jitpack.io" }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
-    implementation 'com.github.sousa2222:1.2.7'
+    implementation 'com.github.sousa2222:SmartInvs:SmartInvs-1.2.7'
 }
 
 jar {
