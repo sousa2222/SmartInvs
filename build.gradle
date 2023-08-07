@@ -31,64 +31,15 @@ artifacts { archives javadocJar, sourcesJar }
 repositories {
     mavenCentral()
 
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    implementation 'com.github.sousa2222:1.2.7'
 }
 
 jar {
     archiveFileName = 'SmartInvs-' + project.version + '.jar'
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            if(project.hasProperty("ossrhUsername") && project.hasProperty("ossrhPassword")) {
-                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-
-                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                    authentication(userName: ossrhUsername, password: ossrhPassword)
-                }
-            }
-
-            pom.project {
-                name 'SmartInvs'
-                packaging 'jar'
-                description 'Advanced Inventory API for your Minecraft Bukkit plugins.'
-                url 'https://github.com/sousa2222/SmartInvs'
-
-                scm {
-                    connection 'scm:git:git://github.com/sousa2222/SmartInvs.git'
-                    developerConnection 'scm:git:ssh://github.com:sousa2222/SmartInvs.git'
-                    url 'https://github.com/sousa2222/SmartInvs/tree/master'
-                }
-
-                licenses {
-                    license {
-                        name 'GNU General Public License v3.0'
-                        url 'https://www.gnu.org/licenses/gpl-3.0.en.html'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'minuskube'
-                        name 'MinusKube'
-                        email 'minuskube@gmail.com'
-                    }
-                    developer {
-                        id 'sousa222'
-                        name 'Sousa'
-                    }
-                }
-            }
-        }
-    }
-}
