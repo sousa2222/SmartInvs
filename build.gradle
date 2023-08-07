@@ -1,4 +1,4 @@
-group 'fr.minuskube.inv'
+group 'com.github.sousa2222.SmartInvs'
 version '1.2.7'
 
 apply plugin: 'java'
