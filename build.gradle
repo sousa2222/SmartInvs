@@ -32,6 +32,7 @@ repositories {
     mavenCentral()
 
     maven { url "https://jitpack.io" }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
 }
 
 dependencies {
